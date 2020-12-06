@@ -1,4 +1,5 @@
 import 'package:firestoreCRUDapp/models/product.dart';
+import 'package:firestoreCRUDapp/screens/servicemap_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,14 @@ class ProductScreen extends StatelessWidget {
           title: Text('รายการสินค้า'),
           actions: [
             IconButton(
+                icon: Icon(Icons.map),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ServiceMapScreen()));
+                }),
+            IconButton(
                 icon: Icon(
                   Icons.add,
                   size: 30.0,
@@ -24,7 +33,7 @@ class ProductScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => AddEditProduct()));
-                })
+                }),
           ],
         ),
         body: (products != null)
